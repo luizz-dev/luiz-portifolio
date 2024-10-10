@@ -1,0 +1,7 @@
+contato 
+fazer no js com que quando o botao de enviar for clicado mandar uma mensagem agradescendo 
+arrumar o form , ta dando errado
+
+mobile 
+fazer slides dos projetos e certificados 
+colocar o github no contato

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/contato.css">
+  <title>Contato</title>
+</head>
+
+<body>
+  <header class="cor-preta">
+    <header>
+      <h2 id="pagina">Contato</h2>
+      <nav>
+        <a id="h-nav" href="./index.html">Home</a>
+        <a id="s-nav" href="./sobreMim.html">Sobre mim</a>
+        <a id="c-nav" href="./contato.html">Contato</a>
+      </nav>
+    </header>
+    <section class="contato">
+      <div class="icones">
+        <img onclick="redirecionarW()" src="imgs/icons8-whatsapp.svg" alt="whatsapp">
+        <img onclick="redirecionarG()" id="github" src="imgs/icons8-github (1).svg" alt="github">
+        <img onclick="redirecionarL()" src="imgs/icons8-linkedin.svg" alt="">
+      </div>
+
+      <form id="meuForm" action="https://api.staticforms.xyz/submit" method="post">
+        <input type="hidden" name="accessKey" value="9b9bbd38-60a7-4681-87af-58b8b7820bbf">
+        <label>Nome</label>
+        <input id="nome" type="text" name="name" placeholder="Digite seu nome" required>
+        <label>Email</label>
+        <input id="email" type="email" name="email" placeholder="Digite seu email" required>
+        <label>Mensagem</label>
+        <textarea id="mensagem" name="message" cols="30" rows="10" placeholder="Digite sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+
+      <script>
+        document.getElementById('meuForm').addEventListener('submit', function (e) {
+          e.preventDefault(); // Evita o comportamento padrão de envio do formulário
+
+          var form = e.target;
+          var data = new FormData(form);
+
+          fetch(form.action, {
+            method: 'POST',
+            body: data
+          })
+            .then(response => {
+              if (response.ok) {
+                window.location.href = "http://127.0.0.1:5502/sobreMim.html"; // Redireciona após o envio bem-sucedido
+              } else {
+                alert("Erro ao enviar o formulário.");
+              }
+            })
+            .catch(error => {
+              alert("Ocorreu um erro: " + error);
+            });
+        });
+      </script>
+
+    </section>
+  </header>
+  <script src="script.js"></script>
+</body>
+
+</html>
